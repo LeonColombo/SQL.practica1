@@ -26,6 +26,11 @@ public class VerRegistros extends AppCompatActivity {
 
         sqlAgenda = new SQLAgenda(this);
 
+        personaArrayList = sqlAgenda.getPersona();
+        adapter = new Adapter(personaArrayList,this);
+
+        listView = findViewById(R.id.ListaPersonas);
+        listView.setAdapter(adapter);
 
     }
 }
