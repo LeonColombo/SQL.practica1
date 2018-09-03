@@ -33,6 +33,7 @@ public class SQLAgenda extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
+
     }
 
     private void conectar(){
