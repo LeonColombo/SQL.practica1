@@ -52,9 +52,9 @@ public class Adapter extends BaseAdapter {
         telefono = view.findViewById(R.id.LstTelefono);
 
         nombre.setText(personaArrayList.get(i).getNombre() + " " + personaArrayList.get(i).getApellido());
-        dni.setText(personaArrayList.get(i).getDNI());
+        dni.setText(String.valueOf(personaArrayList.get(i).getDNI().toString()));
         direccion.setText(personaArrayList.get(i).getCalle() + " " + personaArrayList.get(i).getAltura());
-        telefono.setText(personaArrayList.get(i).getTelefono());
+        telefono.setText(String.valueOf(personaArrayList.get(i).getTelefono().toString()));
 
         return view;
     }
