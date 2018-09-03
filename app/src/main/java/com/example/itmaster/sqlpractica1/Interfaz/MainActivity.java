@@ -1,16 +1,14 @@
 package com.example.itmaster.sqlpractica1.Interfaz;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-
-import com.example.itmaster.sqlpractica1.Models.Persona;
-import com.example.itmaster.sqlpractica1.R;
 
 import com.example.itmaster.sqlpractica1.Listeners.ListenerBtnRegistrar;
 import com.example.itmaster.sqlpractica1.Listeners.ListenerBtnVerRegistros;
+import com.example.itmaster.sqlpractica1.Models.Persona;
+import com.example.itmaster.sqlpractica1.R;
 
 //Hacer Dos Activities -
 
@@ -129,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         BtnRegistrar = findViewById(R.id.BtnRegistrar);
         BtnVerRegistros = findViewById(R.id.BtnVerRegistros);
 
-        listenerBtnRegistrar = new ListenerBtnRegistrar();
+        listenerBtnRegistrar = new ListenerBtnRegistrar(this);
         BtnRegistrar.setOnClickListener(listenerBtnRegistrar);
 
         listenerBtnVerRegistros = new ListenerBtnVerRegistros();
