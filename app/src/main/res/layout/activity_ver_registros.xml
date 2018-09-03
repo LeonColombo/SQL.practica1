@@ -6,4 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".Interfaz.VerRegistros">
 
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listaPersonas">
+
+
+    </ListView>
+
 </android.support.constraint.ConstraintLayout>

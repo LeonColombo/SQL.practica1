@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
         listenerBtnRegistrar = new ListenerBtnRegistrar(this);
         BtnRegistrar.setOnClickListener(listenerBtnRegistrar);
 
-        listenerBtnVerRegistros = new ListenerBtnVerRegistros();
+        listenerBtnVerRegistros = new ListenerBtnVerRegistros(this);
         BtnVerRegistros.setOnClickListener(listenerBtnVerRegistros);
 
         Nombre = findViewById(R.id.EdtNombre);
