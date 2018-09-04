@@ -2,10 +2,13 @@ package com.example.itmaster.sqlpractica1.Interfaz;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import com.example.itmaster.sqlpractica1.Adapters.Adapter;
 import com.example.itmaster.sqlpractica1.DAO.SQLAgenda;
+import com.example.itmaster.sqlpractica1.Listeners.ListenerBtnBorrarList;
+import com.example.itmaster.sqlpractica1.Listeners.ListenerBtnRegistrar;
 import com.example.itmaster.sqlpractica1.Models.Persona;
 import com.example.itmaster.sqlpractica1.R;
 
@@ -18,18 +21,23 @@ public class VerRegistros extends AppCompatActivity {
     private Adapter adapter;
     private ListView listView;
     private Persona persona;
+    private ImageButton btnLstEditar, btnLstBorrar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_registros);
+        listView = findViewById(R.id.ListaPersonas);
+        btnLstBorrar = findViewById(R.id.BtnLstBorrar);
+        btnLstEditar = findViewById(R.id.BtnLstEditar);
 
         sqlAgenda = new SQLAgenda(this);
 
         personaArrayList = sqlAgenda.getPersona();
-        adapter = new Adapter(personaArrayList,this);
+        adapter = new Adapter(personaArrayList,this, listView);
 
-        listView = findViewById(R.id.ListaPersonas);
+
         listView.setAdapter(adapter);
 
     }

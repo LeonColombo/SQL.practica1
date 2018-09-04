@@ -59,7 +59,7 @@ public class SQLAgenda extends SQLiteOpenHelper {
         this.desconectar();
     }
 
-     public ArrayList<Persona> getPersona(){
+     public ArrayList<Persona> getPersona(){ //para levantar lo que se guardo en la base de datos
         personaArrayList = new ArrayList<>();
         this.conectar();
         String query ="";
@@ -69,9 +69,23 @@ public class SQLAgenda extends SQLiteOpenHelper {
             //Persona(String nombre, String apellido, String calle, Integer DNI, Integer altura, Integer pisoDto, Integer telefono, Integer ID)
              Persona unaPersona = new Persona (cursor.getString(cursor.getColumnIndex("NOMBRE")), cursor.getString(cursor.getColumnIndex("APELLIDO")),cursor.getString(cursor.getColumnIndex("CALLE")), cursor.getInt(cursor.getColumnIndex("DNI")),cursor.getInt(cursor.getColumnIndex("ALTURA")),cursor.getInt(cursor.getColumnIndex("PISO")),cursor.getInt(cursor.getColumnIndex("TELEFONO")),null);
              personaArrayList.add(unaPersona);
+
          }
         return personaArrayList;
      }
+
+     public void borrarPersona(Persona persona){
+
+        this.conectar();
+        String query="";
+        query = "delete from CLIENTE where id = " + persona.getID().toString();
+        conexion.execSQL(query);
+        this.desconectar();
+
+
+
+
+    }
 
 
 

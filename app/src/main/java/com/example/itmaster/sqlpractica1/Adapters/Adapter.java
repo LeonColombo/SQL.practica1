@@ -5,9 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.itmaster.sqlpractica1.Interfaz.VerRegistros;
+import com.example.itmaster.sqlpractica1.Listeners.ListenerBtnBorrarList;
 import com.example.itmaster.sqlpractica1.Models.Persona;
 import com.example.itmaster.sqlpractica1.R;
 
@@ -17,8 +19,9 @@ public class Adapter extends BaseAdapter {
 
     private ArrayList<Persona> personaArrayList;
     private VerRegistros context;
+    private ListenerBtnBorrarList listenerBtnBorrarList;
 
-    public Adapter(ArrayList<Persona> personaArrayList, VerRegistros context) {
+    public Adapter(ArrayList<Persona> personaArrayList, VerRegistros context, ListView listView) {
         this.personaArrayList = personaArrayList;
         this.context = context;
     }
