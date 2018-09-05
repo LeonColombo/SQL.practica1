@@ -29,8 +29,8 @@ public class VerRegistros extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_registros);
         listView = findViewById(R.id.ListaPersonas);
-        btnLstBorrar = findViewById(R.id.BtnLstBorrar);
-        btnLstEditar = findViewById(R.id.BtnLstEditar);
+        btnLstBorrar = findViewById(R.id.btnLstBorrar);
+        btnLstEditar = findViewById(R.id.btnLstBorrar);
 
         sqlAgenda = new SQLAgenda(this);
 

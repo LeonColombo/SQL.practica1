@@ -73,7 +73,7 @@
         android:layout_gravity="center_horizontal"/>
 
     <ImageButton
-        android:id="@+id/BtnLstEditar"
+        android:id="@+id/btnLstEditar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/ic_menu_edit"
@@ -82,7 +82,7 @@
         />
 
     <ImageButton
-        android:id="@+id/BtnLstBorrar"
+        android:id="@+id/btnLstBorrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/ic_menu_delete" />

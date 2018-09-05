@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,10 +21,14 @@ public class Adapter extends BaseAdapter {
     private ArrayList<Persona> personaArrayList;
     private VerRegistros context;
     private ListenerBtnBorrarList listenerBtnBorrarList;
+    private ListView listView;
+    private ImageButton btnLstBorrar;
+
 
     public Adapter(ArrayList<Persona> personaArrayList, VerRegistros context, ListView listView) {
         this.personaArrayList = personaArrayList;
         this.context = context;
+        this.listView = listView;
     }
 
     @Override
@@ -53,6 +58,11 @@ public class Adapter extends BaseAdapter {
         dni = view.findViewById(R.id.LstDNI);
         direccion = view.findViewById(R.id.LstDireccion);
         telefono = view.findViewById(R.id.LstTelefono);
+        btnLstBorrar = view.findViewById(R.id.btnLstBorrar);
+
+        listenerBtnBorrarList = new ListenerBtnBorrarList(context, listView, personaArrayList);
+        btnLstBorrar.setOnClickListener(listenerBtnBorrarList);
+
 
         nombre.setText(personaArrayList.get(i).getNombre() + " " + personaArrayList.get(i).getApellido());
         dni.setText(String.valueOf(personaArrayList.get(i).getDNI().toString()));

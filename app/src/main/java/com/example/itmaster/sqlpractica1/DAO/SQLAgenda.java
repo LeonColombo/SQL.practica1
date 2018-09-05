@@ -67,7 +67,7 @@ public class SQLAgenda extends SQLiteOpenHelper {
          Cursor cursor = conexion.rawQuery(query,null);
          while(cursor.moveToNext()){
             //Persona(String nombre, String apellido, String calle, Integer DNI, Integer altura, Integer pisoDto, Integer telefono, Integer ID)
-             Persona unaPersona = new Persona (cursor.getString(cursor.getColumnIndex("NOMBRE")), cursor.getString(cursor.getColumnIndex("APELLIDO")),cursor.getString(cursor.getColumnIndex("CALLE")), cursor.getInt(cursor.getColumnIndex("DNI")),cursor.getInt(cursor.getColumnIndex("ALTURA")),cursor.getInt(cursor.getColumnIndex("PISO")),cursor.getInt(cursor.getColumnIndex("TELEFONO")),null);
+             Persona unaPersona = new Persona (cursor.getString(cursor.getColumnIndex("NOMBRE")), cursor.getString(cursor.getColumnIndex("APELLIDO")),cursor.getString(cursor.getColumnIndex("CALLE")), cursor.getInt(cursor.getColumnIndex("DNI")),cursor.getInt(cursor.getColumnIndex("ALTURA")),cursor.getInt(cursor.getColumnIndex("PISO")),cursor.getInt(cursor.getColumnIndex("TELEFONO")),cursor.getInt(cursor.getColumnIndex("ID")));
              personaArrayList.add(unaPersona);
 
          }
