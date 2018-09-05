@@ -22,6 +22,9 @@ import com.example.itmaster.sqlpractica1.R;
 //**BOTON VER REGISTROS**
 //New Activity / Un ListView: en cada celda[nombre apellido tel dni calle altura piso dto email]
 
+///hacer para el jueves: un mapa de interaccion de dependencias
+// y un REFRESH apenas se borra la persona de ListView
+
 public class MainActivity extends AppCompatActivity {
 
     private ListenerBtnRegistrar listenerBtnRegistrar;
