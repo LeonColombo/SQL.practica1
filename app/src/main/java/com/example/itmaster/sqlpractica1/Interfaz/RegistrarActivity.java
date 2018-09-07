@@ -86,7 +86,7 @@ public class RegistrarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar);
 
-        //IF BUNDEL id !=0 else blah blah
+        //IF BUNDLE id !=0 else blah blah
 
         BtnRegistrar = findViewById(R.id.BtnGuardar);
         BtnVerRegistros = findViewById(R.id.BtnVerRegistros);
