@@ -24,11 +24,16 @@ public class Adapter extends BaseAdapter {
     private ListView listView;
     private ImageButton btnLstBorrar;
 
+    public void setPersonaArrayList(ArrayList<Persona> personaArrayList) {
+        this.personaArrayList = personaArrayList;
+    }
 
     public Adapter(ArrayList<Persona> personaArrayList, VerRegistros context, ListView listView) {
         this.personaArrayList = personaArrayList;
         this.context = context;
         this.listView = listView;
+
+
     }
 
     @Override
@@ -70,5 +75,7 @@ public class Adapter extends BaseAdapter {
         telefono.setText(String.valueOf(personaArrayList.get(i).getTelefono().toString()));
 
         return view;
+
+
     }
 }

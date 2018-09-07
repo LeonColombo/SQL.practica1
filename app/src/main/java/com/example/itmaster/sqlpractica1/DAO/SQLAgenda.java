@@ -82,10 +82,9 @@ public class SQLAgenda extends SQLiteOpenHelper {
         conexion.execSQL(query);
         this.desconectar();
 
-
-
-
     }
+
+
 
 
 

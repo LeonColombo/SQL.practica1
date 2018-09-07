@@ -3,13 +3,13 @@ package com.example.itmaster.sqlpractica1.Listeners;
 import android.content.Intent;
 import android.view.View;
 
-import com.example.itmaster.sqlpractica1.Interfaz.MainActivity;
+import com.example.itmaster.sqlpractica1.Interfaz.Principal;
 import com.example.itmaster.sqlpractica1.Interfaz.VerRegistros;
 
 public class ListenerBtnVerRegistros implements View.OnClickListener {
-    MainActivity context;
+    Principal context;
 
-    public ListenerBtnVerRegistros(MainActivity context) {
+    public ListenerBtnVerRegistros(Principal context) {
         this.context = context;
     }
 

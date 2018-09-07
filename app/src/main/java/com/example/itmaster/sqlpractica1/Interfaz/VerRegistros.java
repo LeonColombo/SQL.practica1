@@ -23,6 +23,13 @@ public class VerRegistros extends AppCompatActivity {
     private Persona persona;
     private ImageButton btnLstEditar, btnLstBorrar;
 
+    public Adapter getAdapter() {
+        return adapter;
+    }
+
+    public void setAdapter(Adapter adapter) {
+        this.adapter = adapter;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

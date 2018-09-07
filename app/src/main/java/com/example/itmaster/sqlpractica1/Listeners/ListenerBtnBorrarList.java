@@ -11,12 +11,12 @@ import com.example.itmaster.sqlpractica1.Models.Persona;
 import java.util.ArrayList;
 
 public class ListenerBtnBorrarList implements View.OnClickListener {
-    private Context context;
+    private VerRegistros context;
     private SQLAgenda sqlAgenda;
     private ListView listView;
     private ArrayList<Persona> personaArrayList;
 
-    public ListenerBtnBorrarList(Context context, ListView listView, ArrayList<Persona> personaArrayList) {
+    public ListenerBtnBorrarList(VerRegistros context, ListView listView, ArrayList<Persona> personaArrayList) {
         this.context = context;
         this.sqlAgenda = sqlAgenda;
         this.listView = listView;
@@ -29,5 +29,8 @@ public class ListenerBtnBorrarList implements View.OnClickListener {
         Integer i = listView.getPositionForView(view);
         sqlAgenda.borrarPersona(personaArrayList.get(i));
 
+        ArrayList<Persona>  arrayList = sqlAgenda.getPersona();
+        context.getAdapter().setPersonaArrayList(arrayList);
+        context.getAdapter().notifyDataSetChanged();
     }
 }
