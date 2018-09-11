@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.itmaster.sqlpractica1.Interfaz.VerRegistros;
 import com.example.itmaster.sqlpractica1.Listeners.ListenerBtnBorrarList;
+import com.example.itmaster.sqlpractica1.Listeners.ListenerBtnEditarList;
 import com.example.itmaster.sqlpractica1.Models.Persona;
 import com.example.itmaster.sqlpractica1.R;
 
@@ -21,8 +22,9 @@ public class Adapter extends BaseAdapter {
     private ArrayList<Persona> personaArrayList;
     private VerRegistros context;
     private ListenerBtnBorrarList listenerBtnBorrarList;
+    private ListenerBtnEditarList listenerBtnEditarList;
     private ListView listView;
-    private ImageButton btnLstBorrar;
+    private ImageButton btnLstBorrar, btnLstEditar;
 
     public void setPersonaArrayList(ArrayList<Persona> personaArrayList) {
         this.personaArrayList = personaArrayList;
@@ -63,10 +65,17 @@ public class Adapter extends BaseAdapter {
         dni = view.findViewById(R.id.LstDNI);
         direccion = view.findViewById(R.id.LstDireccion);
         telefono = view.findViewById(R.id.LstTelefono);
+
         btnLstBorrar = view.findViewById(R.id.btnLstBorrar);
+        btnLstEditar = view.findViewById(R.id.btnLstEditar);
+
 
         listenerBtnBorrarList = new ListenerBtnBorrarList(context, listView, personaArrayList);
         btnLstBorrar.setOnClickListener(listenerBtnBorrarList);
+
+        listenerBtnEditarList = new ListenerBtnEditarList(context, listView, personaArrayList);
+        btnLstEditar.setOnClickListener(listenerBtnEditarList);
+
 
 
         nombre.setText(personaArrayList.get(i).getNombre() + " " + personaArrayList.get(i).getApellido());

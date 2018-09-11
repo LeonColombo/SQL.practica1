@@ -3,6 +3,7 @@ package com.example.itmaster.sqlpractica1.Listeners;
 import android.content.Context;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.itmaster.sqlpractica1.DAO.SQLAgenda;
 import com.example.itmaster.sqlpractica1.Interfaz.VerRegistros;
@@ -25,12 +26,15 @@ public class ListenerBtnBorrarList implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+
         sqlAgenda = new SQLAgenda(context);
         Integer i = listView.getPositionForView(view);
         sqlAgenda.borrarPersona(personaArrayList.get(i));
 
-        ArrayList<Persona>  arrayList = sqlAgenda.getPersona();
-        context.getAdapter().setPersonaArrayList(arrayList);
-        context.getAdapter().notifyDataSetChanged();
+        ArrayList<Persona>  arrayList = sqlAgenda.getPersona(); //hace consulta al ArrayList (que son TODAS las personas guardadas)
+        context.getAdapter().setPersonaArrayList(arrayList); //Reescribe ArrayList
+        context.getAdapter().notifyDataSetChanged(); //Actualiza y ejecuta SQL
+
+
     }
 }

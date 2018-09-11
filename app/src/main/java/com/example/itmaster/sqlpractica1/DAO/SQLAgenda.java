@@ -85,7 +85,18 @@ public class SQLAgenda extends SQLiteOpenHelper {
     }
 
 
+    public ArrayList<Persona> EditarPersona (Persona persona) {
+        ArrayList<Persona> personaArrayList = new ArrayList<>();
+        this.conectar();
+        String query ="";
+        query="Select from CLIENTE where id =" + persona.getID().toString();
+        Cursor cursor = conexion.rawQuery(query, null);
+        while(cursor.moveToNext()){
+            Persona personaEditada = new Persona (cursor.getString(cursor.getColumnIndex("NOMBRE")), cursor.getString(cursor.getColumnIndex("APELLIDO")),cursor.getString(cursor.getColumnIndex("CALLE")), cursor.getInt(cursor.getColumnIndex("DNI")),cursor.getInt(cursor.getColumnIndex("ALTURA")),cursor.getInt(cursor.getColumnIndex("PISO")),cursor.getInt(cursor.getColumnIndex("TELEFONO")),cursor.getInt(cursor.getColumnIndex("ID")));
+            personaArrayList.add(personaEditada);
+        }
+        return personaArrayList;
 
 
-
+    }
 }
