@@ -34,12 +34,36 @@ public class ListenerBtnEditarList implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
-        Intent intent = new Intent (this.context, RegistrarActivity.class);
+        //  @Override
+        //    public void onClick(View view) {
+        //        SqliteAgenda sqliteAgenda=new SqliteAgenda(context);
+        //        Integer posicion=listView.getPositionForView(view);
+        //        sqliteAgenda.EditarAgendaSql(agendaArrayList.get(posicion));
+        //
+        //        Agenda agendaEdit=agendaArrayList.get(posicion);
+        //
+        //        Intent intentActivity2=new Intent(context, Activity2.class);
+        //
+        //        Bundle bundleEditar=new Bundle();
+        //        bundleEditar.putSerializable("Agenda",agendaEdit);
+        //
+        //        intentActivity2.putExtras(bundleEditar);
+        //        context.startActivity(intentActivity2);
+        //    }
+
 
         
         SQLAgenda sqlAgenda = new SQLAgenda(context);
         Integer posicion = listView.getPositionForView(view);
-        sqlAgenda.EditarPersona(personaArrayList.get(posicion));
+
+        Persona personaEditada =personaArrayList.get(posicion);
+        //dame todos los datos del obj q esta en esa posicion//
+
+        Intent intent = new Intent (this.context, RegistrarActivity.class);
+
+        Bundle bundleEditar=new Bundle();
+        bundleEditar.putInt("PersonaID", personaEditada.getID());
+        intent.putExtras(bundleEditar);
 
         context.startActivity(intent);
 
