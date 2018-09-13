@@ -20,7 +20,7 @@ public class ListenerBtnGuardar implements View.OnClickListener {
     public void onClick(View view) {
         sqlAgenda = new SQLAgenda(context);
 
-        Persona persona = new Persona(String.valueOf(context.getNombre().getText()), String.valueOf(context.getApellido().getText()), String.valueOf(context.getCalle().getText()), Integer.valueOf(context.getDNI().getText().toString()), Integer.valueOf(context.getAltura().getText().toString()), Integer.valueOf(context.getPisoDto().getText().toString()), Integer.valueOf(context.getTelefono().getText().toString()), null);
+        Persona persona = new Persona(String.valueOf(context.getNombre().getText()), String.valueOf(context.getApellido().getText()), String.valueOf(context.getCalle().getText()), Integer.valueOf(context.getDNI().getText().toString()), Integer.valueOf(context.getAltura().getText().toString()), Integer.valueOf(context.getPisoDto().getText().toString()), Integer.valueOf(context.getTelefono().getText().toString()), context.getId());
 
 
         if (context.getId().equals(0)){
