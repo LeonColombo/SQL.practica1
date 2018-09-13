@@ -111,7 +111,7 @@ public class RegistrarActivity extends AppCompatActivity {
         PisoDto = findViewById(R.id.EdtPiso);
         Telefono = findViewById(R.id.EdtTelefono);
 
-        if(!Id.equals(0)){
+        if(!Id.equals(0)){ //ACA SOLAMENTE ME MUESTRA EN LA PANTALLA DE REGISTRO LA PERSONA CON EL ID DEL LISTVIEW
 
             sqlAgenda = new SQLAgenda(this);
             Persona persona = sqlAgenda.getPersonaPorID(Id);

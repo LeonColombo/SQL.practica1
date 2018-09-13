@@ -24,13 +24,14 @@ public class ListenerBtnGuardar implements View.OnClickListener {
 
 
         if (context.getId().equals(0)){
-        sqlAgenda.guardarPersona(persona);
+            sqlAgenda.guardarPersona(persona);
         }else {
             sqlAgenda.actualizar(persona);
         }
 
         Toast.makeText(context, "Registro Actualizado",Toast.LENGTH_LONG).show();
         context.onBackPressed();
+
     }
 
 }

@@ -75,14 +75,13 @@ public class SQLAgenda extends SQLiteOpenHelper {
      }
 
          public Persona getPersonaPorID (Integer id) {
-             ArrayList<Persona> personaArrayList = new ArrayList<>();
              this.conectar();
              Persona persona = null;
              String query ="";
-             query="Select from CLIENTE where id =" + persona.getID().toString();
+             query="Select * from CLIENTE where ID = " + id.toString();
              Cursor cursor = conexion.rawQuery(query, null);
              while(cursor.moveToNext()){
-                 Persona personaEditada = new Persona (cursor.getString(cursor.getColumnIndex("NOMBRE")), cursor.getString(cursor.getColumnIndex("APELLIDO")),cursor.getString(cursor.getColumnIndex("CALLE")), cursor.getInt(cursor.getColumnIndex("DNI")),cursor.getInt(cursor.getColumnIndex("ALTURA")),cursor.getInt(cursor.getColumnIndex("PISO")),cursor.getInt(cursor.getColumnIndex("TELEFONO")),cursor.getInt(cursor.getColumnIndex("ID")));
+                 persona = new Persona (cursor.getString(cursor.getColumnIndex("NOMBRE")), cursor.getString(cursor.getColumnIndex("APELLIDO")),cursor.getString(cursor.getColumnIndex("CALLE")), cursor.getInt(cursor.getColumnIndex("DNI")),cursor.getInt(cursor.getColumnIndex("ALTURA")),cursor.getInt(cursor.getColumnIndex("PISO")),cursor.getInt(cursor.getColumnIndex("TELEFONO")),cursor.getInt(cursor.getColumnIndex("ID")));
              }
              this.desconectar();
              return persona;
@@ -109,12 +108,14 @@ public class SQLAgenda extends SQLiteOpenHelper {
 
         fila.put("NOMBRE",persona.getNombre());
         fila.put("APELLIDO", persona.getApellido());
-        fila.put("DNI", persona.getDNI());
+        fila.put("DNI", persona.getDNI().toString());
         fila.put("CALLE", persona.getCalle());
-        fila.put("ALTURA",persona.getAltura());
-        fila.put("PISO",persona.getPisoDto());
-        fila.put("TELEFONO",persona.getTelefono());
+        fila.put("ALTURA",persona.getAltura().toString());
+        fila.put("PISO",persona.getPisoDto().toString());
+        fila.put("TELEFONO",persona.getTelefono().toString());
         conexion.update("CLIENTE", fila, "ID = " + persona.getID(),null);
+
+        this.desconectar();
     }
 
     }

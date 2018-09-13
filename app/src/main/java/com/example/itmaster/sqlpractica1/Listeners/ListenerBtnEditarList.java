@@ -34,7 +34,7 @@ public class ListenerBtnEditarList implements View.OnClickListener {
     //hace un new intent igual que el btnregistrar
     //intent putint ID dif 0
     @Override
-    public void onClick(View view) {
+    public void onClick(View view) { //ACA solo cargo un valor ID del objeto del array a editar
 
 
         SQLAgenda sqlAgenda = new SQLAgenda(context);
