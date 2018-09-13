@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.itmaster.sqlpractica1.DAO.SQLAgenda;
 import com.example.itmaster.sqlpractica1.Listeners.ListenerBtnGuardar;
 import com.example.itmaster.sqlpractica1.Listeners.ListenerBtnRegistrar;
 import com.example.itmaster.sqlpractica1.Listeners.ListenerBtnVerRegistros;
@@ -42,9 +43,13 @@ public class RegistrarActivity extends AppCompatActivity {
     private ListenerBtnGuardar listenerBtnGuardar;
     private Button BtnRegistrar, BtnVerRegistros;
     private EditText Nombre, Apellido, DNI, Calle, Altura, PisoDto, Telefono;
+    private Integer Id;
+    private SQLAgenda sqlAgenda;
 
 
-
+    public Integer getId() {
+        return Id;
+    }
 
     public EditText getNombre() {
         return Nombre;
@@ -86,7 +91,9 @@ public class RegistrarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar);
 
-        //IF BUNDLE id !=0 else blah blah
+        Bundle bundle = getIntent().getExtras();
+
+        Id = bundle.getInt("ID");
 
         BtnRegistrar = findViewById(R.id.BtnGuardar);
         BtnVerRegistros = findViewById(R.id.BtnVerRegistros);
@@ -103,6 +110,23 @@ public class RegistrarActivity extends AppCompatActivity {
         Altura = findViewById(R.id.EdtAltura);
         PisoDto = findViewById(R.id.EdtPiso);
         Telefono = findViewById(R.id.EdtTelefono);
+
+        if(!Id.equals(0)){
+
+            sqlAgenda = new SQLAgenda(this);
+            Persona persona = sqlAgenda.getPersonaPorID(Id);
+
+            Nombre.setText(persona.getNombre());
+            Apellido.setText(persona.getApellido());
+            DNI.setText(String.valueOf(persona.getDNI()));
+            Calle.setText(persona.getCalle());
+            Altura.setText(String.valueOf(persona.getAltura()));
+            Telefono.setText(String.valueOf(persona.getTelefono()));
+            PisoDto.setText(String.valueOf(persona.getPisoDto()));
+
+
+
+        }
 
 
     }
