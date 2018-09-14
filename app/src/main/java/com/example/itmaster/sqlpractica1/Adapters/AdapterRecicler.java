@@ -34,6 +34,8 @@ public class AdapterRecicler extends RecyclerView.Adapter {
         View viewDeLaCelda = layoutInflater.inflate(R.layout.celda_cliente,parent,false);
         ClienteViewHolder clienteViewHolder = new ClienteViewHolder(viewDeLaCelda);
 
+        //viewDeLaCelda.setOnClick te reconoceria un click en el recyclerView
+        
         return clienteViewHolder;
 
 
