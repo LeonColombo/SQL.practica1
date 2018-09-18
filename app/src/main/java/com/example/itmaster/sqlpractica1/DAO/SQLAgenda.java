@@ -94,7 +94,7 @@ public class SQLAgenda extends SQLiteOpenHelper {
         personaArrayList = new ArrayList<Persona>();
         this.conectar();
         String query="";
-        query = "SELECT * FROM CLIENTE ORDER BY NOMBRE ASC ";
+        query = "select * from CLIENTE order by NOMBRE asc ";
         //Cursor cursor = conexion.rawQuery(query, null);
         //conexion.compileStatement(query);
         conexion.execSQL(query);
@@ -107,7 +107,7 @@ public class SQLAgenda extends SQLiteOpenHelper {
         personaArrayList = new ArrayList<Persona>();
         this.conectar();
         String query="";
-        query = "SELECT * FROM CLIENTE ORDER BY DNI ASC ";
+        query = "select * from CLIENTE order by DNI asc ";
         //Cursor cursor = conexion.rawQuery(query, null);
         conexion.execSQL(query);
         this.desconectar();

@@ -32,11 +32,16 @@ public class ListenerChkListName implements View.OnClickListener {
 
         sqlAgenda = new SQLAgenda(context);
         ArrayList<Persona> person = new ArrayList<Persona>();
+
+        //for (int i = 0 ; i< person.size() ; i++){
+        //sqlAgenda.ordenarPersonas(person);}
+
         sqlAgenda.ordenarPersonas(person);
-        ArrayList<Persona>  arrayList = sqlAgenda.getPersona();
+
+        person = sqlAgenda.getPersona();
 
 
-        context.getAdapter().setPersonaArrayList(arrayList);
+        context.getAdapter().setPersonaArrayList(person);
         context.getAdapter().notifyDataSetChanged();
        }
 

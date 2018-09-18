@@ -29,9 +29,11 @@ public class ListenerChkDni implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
+
+
         sqlAgenda = new SQLAgenda(context);
-        ArrayList<Persona> person = new ArrayList<Persona>();
-        sqlAgenda.ordenarPersonasDni(person);
+        sqlAgenda.ordenarPersonasDni(personaArrayList);
+
         ArrayList<Persona>  arrayList = sqlAgenda.getPersona();
 
 
