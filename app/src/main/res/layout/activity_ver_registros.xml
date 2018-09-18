@@ -1,17 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Interfaz.VerRegistros">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ordenar por:"
+        android:id="@+id/titulito"
+        android:layout_marginRight="10dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="A-Z"
+        android:layout_below="@+id/titulito"
+        android:id="@+id/checkboxName"
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="DNI"
+        android:layout_toRightOf="@+id/checkboxName"
+        android:id="@+id/checkboxDNI"
+        android:layout_below="@+id/titulito"
+        android:layout_marginBottom="5dp"
+        />
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/ListaPersonas">
+        android:id="@+id/ListaPersonas"
+        android:layout_below="@+id/checkboxDNI"
+        >
 
 
     </ListView>
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

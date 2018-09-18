@@ -7,10 +7,15 @@
     tools:context=".Interfaz.RegistrarActivity"
     android:background="@android:color/holo_blue_dark">
 
+
+
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="INGRESE UNA PERSONA NUEVA"
+        android:id="@+id/txtTitulo"
         android:textAlignment="center"
         android:layout_marginTop="20sp"
         android:textSize="20dp"

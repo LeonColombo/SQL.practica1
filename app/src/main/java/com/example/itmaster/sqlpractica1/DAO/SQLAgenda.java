@@ -66,8 +66,10 @@ public class SQLAgenda extends SQLiteOpenHelper {
          query = "select NOMBRE, APELLIDO, CALLE, DNI, ALTURA, PISO, TELEFONO, ID from CLIENTE";
          Cursor cursor = conexion.rawQuery(query, null);
          while (cursor.moveToNext()) {
-             //Persona(String nombre, String apellido, String calle, Integer DNI, Integer altura, Integer pisoDto, Integer telefono, Integer ID)
-             Persona unaPersona = new Persona(cursor.getString(cursor.getColumnIndex("NOMBRE")), cursor.getString(cursor.getColumnIndex("APELLIDO")), cursor.getString(cursor.getColumnIndex("CALLE")), cursor.getInt(cursor.getColumnIndex("DNI")), cursor.getInt(cursor.getColumnIndex("ALTURA")), cursor.getInt(cursor.getColumnIndex("PISO")), cursor.getInt(cursor.getColumnIndex("TELEFONO")), cursor.getInt(cursor.getColumnIndex("ID")));
+             Persona unaPersona = new Persona(cursor.getString(cursor.getColumnIndex("NOMBRE")), cursor.getString(cursor.getColumnIndex("APELLIDO")),
+                     cursor.getString(cursor.getColumnIndex("CALLE")), cursor.getInt(cursor.getColumnIndex("DNI")), cursor.getInt(cursor.getColumnIndex("ALTURA")),
+                     cursor.getInt(cursor.getColumnIndex("PISO")), cursor.getInt(cursor.getColumnIndex("TELEFONO")), cursor.getInt(cursor.getColumnIndex("ID")));
+
              personaArrayList.add(unaPersona);
 
          }
@@ -86,6 +88,31 @@ public class SQLAgenda extends SQLiteOpenHelper {
              this.desconectar();
              return persona;
          }
+
+
+    public ArrayList<Persona> ordenarPersonas(ArrayList<Persona> persona){
+        personaArrayList = new ArrayList<Persona>();
+        this.conectar();
+        String query="";
+        query = "SELECT * FROM CLIENTE ORDER BY NOMBRE ASC ";
+        //Cursor cursor = conexion.rawQuery(query, null);
+        //conexion.compileStatement(query);
+        conexion.execSQL(query);
+        this.desconectar();
+        return persona;
+    }
+
+    public void ordenarPersonasDni(ArrayList<Persona> person) {
+
+        personaArrayList = new ArrayList<Persona>();
+        this.conectar();
+        String query="";
+        query = "SELECT * FROM CLIENTE ORDER BY DNI ASC ";
+        //Cursor cursor = conexion.rawQuery(query, null);
+        conexion.execSQL(query);
+        this.desconectar();
+
+    }
 
 
      public void borrarPersona(Persona persona){
@@ -118,5 +145,6 @@ public class SQLAgenda extends SQLiteOpenHelper {
         this.desconectar();
     }
 
-    }
+
+}
 

@@ -2,6 +2,7 @@ package com.example.itmaster.sqlpractica1.Interfaz;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
@@ -9,6 +10,7 @@ import com.example.itmaster.sqlpractica1.Adapters.Adapter;
 import com.example.itmaster.sqlpractica1.DAO.SQLAgenda;
 import com.example.itmaster.sqlpractica1.Listeners.ListenerBtnBorrarList;
 import com.example.itmaster.sqlpractica1.Listeners.ListenerBtnRegistrar;
+import com.example.itmaster.sqlpractica1.Listeners.ListenerChkListName;
 import com.example.itmaster.sqlpractica1.Models.Persona;
 import com.example.itmaster.sqlpractica1.R;
 
@@ -22,6 +24,9 @@ public class VerRegistros extends AppCompatActivity {
     private ListView listView;
     private Persona persona;
     private ImageButton btnLstEditar, btnLstBorrar;
+    private Button checkBoxName, checkBoxDNI;
+    private ListenerChkListName listenerChkListName;
+
 
     public Adapter getAdapter() {
         return adapter;
@@ -39,12 +44,18 @@ public class VerRegistros extends AppCompatActivity {
         btnLstBorrar = findViewById(R.id.btnLstBorrar);
         btnLstEditar = findViewById(R.id.btnLstEditar);
 
+        checkBoxName = findViewById(R.id.checkboxName);
+
+
+        listenerChkListName = new ListenerChkListName(this,listView,personaArrayList);
+        checkBoxName.setOnClickListener(listenerChkListName);
 
 
         sqlAgenda = new SQLAgenda(this);
 
         personaArrayList = sqlAgenda.getPersona();
         adapter = new Adapter(personaArrayList,this, listView);
+
 
 
         listView.setAdapter(adapter);

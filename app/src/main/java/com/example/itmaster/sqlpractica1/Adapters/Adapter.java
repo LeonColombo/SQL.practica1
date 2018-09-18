@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 import com.example.itmaster.sqlpractica1.Interfaz.VerRegistros;
 import com.example.itmaster.sqlpractica1.Listeners.ListenerBtnBorrarList;
 import com.example.itmaster.sqlpractica1.Listeners.ListenerBtnEditarList;
+import com.example.itmaster.sqlpractica1.Listeners.ListenerChkListName;
 import com.example.itmaster.sqlpractica1.Models.Persona;
 import com.example.itmaster.sqlpractica1.R;
 
@@ -23,6 +26,8 @@ public class Adapter extends BaseAdapter {
     private VerRegistros context;
     private ListenerBtnBorrarList listenerBtnBorrarList;
     private ListenerBtnEditarList listenerBtnEditarList;
+    private ListenerChkListName listenerChkListName;
+
     private ListView listView;
     private ImageButton btnLstBorrar, btnLstEditar;
 

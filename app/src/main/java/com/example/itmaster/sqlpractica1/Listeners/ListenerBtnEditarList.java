@@ -49,8 +49,5 @@ public class ListenerBtnEditarList implements View.OnClickListener {
         context.startActivity(intent);
         context.finish();
 
-
-
-
     }
 }
