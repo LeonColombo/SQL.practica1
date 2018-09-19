@@ -3,8 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/agregar_cli"
-        android:title="Agregar Cliente"
-        app:showAsAction="always" />
+        
+        app:showAsAction="always"
+        android:icon="@drawable/addperson"
+        />
     <item android:id="@+id/salir"
         android:title="Salir"
         app:showAsAction="never" />
