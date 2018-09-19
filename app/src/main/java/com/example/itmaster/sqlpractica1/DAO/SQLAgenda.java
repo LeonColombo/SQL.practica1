@@ -90,28 +90,38 @@ public class SQLAgenda extends SQLiteOpenHelper {
          }
 
 
-    public ArrayList<Persona> ordenarPersonas(ArrayList<Persona> persona){
+    public ArrayList<Persona> ordenarPersonas () {
         personaArrayList = new ArrayList<Persona>();
         this.conectar();
         String query="";
-        query = "select * from CLIENTE order by NOMBRE asc ";
-        //Cursor cursor = conexion.rawQuery(query, null);
-        //conexion.compileStatement(query);
-        conexion.execSQL(query);
-        this.desconectar();
-        return persona;
+        query = "select NOMBRE, APELLIDO, CALLE, DNI, ALTURA, PISO, TELEFONO, ID from CLIENTE order by NOMBRE";
+        Cursor cursor = conexion.rawQuery(query, null);
+        while (cursor.moveToNext()) {
+            Persona unaPersona = new Persona(cursor.getString(cursor.getColumnIndex("NOMBRE")), cursor.getString(cursor.getColumnIndex("APELLIDO")),
+                    cursor.getString(cursor.getColumnIndex("CALLE")), cursor.getInt(cursor.getColumnIndex("DNI")), cursor.getInt(cursor.getColumnIndex("ALTURA")),
+                    cursor.getInt(cursor.getColumnIndex("PISO")), cursor.getInt(cursor.getColumnIndex("TELEFONO")), cursor.getInt(cursor.getColumnIndex("ID")));
+
+            personaArrayList.add(unaPersona);
+
+        }
+        return personaArrayList;
     }
 
-    public void ordenarPersonasDni(ArrayList<Persona> person) {
-
+    public ArrayList<Persona> ordenarPersonasDni () {
         personaArrayList = new ArrayList<Persona>();
         this.conectar();
         String query="";
-        query = "select * from CLIENTE order by DNI asc ";
-        //Cursor cursor = conexion.rawQuery(query, null);
-        conexion.execSQL(query);
-        this.desconectar();
+        query = "select NOMBRE, APELLIDO, CALLE, DNI, ALTURA, PISO, TELEFONO, ID from CLIENTE order by DNI";
+        Cursor cursor = conexion.rawQuery(query, null);
+        while (cursor.moveToNext()) {
+            Persona unaPersona = new Persona(cursor.getString(cursor.getColumnIndex("NOMBRE")), cursor.getString(cursor.getColumnIndex("APELLIDO")),
+                    cursor.getString(cursor.getColumnIndex("CALLE")), cursor.getInt(cursor.getColumnIndex("DNI")), cursor.getInt(cursor.getColumnIndex("ALTURA")),
+                    cursor.getInt(cursor.getColumnIndex("PISO")), cursor.getInt(cursor.getColumnIndex("TELEFONO")), cursor.getInt(cursor.getColumnIndex("ID")));
 
+            personaArrayList.add(unaPersona);
+
+        }
+        return personaArrayList;
     }
 
 

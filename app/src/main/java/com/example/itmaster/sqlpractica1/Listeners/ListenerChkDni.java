@@ -1,7 +1,10 @@
 package com.example.itmaster.sqlpractica1.Listeners;
 
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ListView;
+import android.widget.RadioGroup;
 
 import com.example.itmaster.sqlpractica1.DAO.SQLAgenda;
 import com.example.itmaster.sqlpractica1.Interfaz.VerRegistros;
@@ -25,20 +28,20 @@ public class ListenerChkDni implements View.OnClickListener {
     }
 
 
-
     @Override
     public void onClick(View view) {
 
 
-
         sqlAgenda = new SQLAgenda(context);
-        sqlAgenda.ordenarPersonasDni(personaArrayList);
-
-        ArrayList<Persona>  arrayList = sqlAgenda.getPersona();
+        personaArrayList = new ArrayList<Persona> () ;
 
 
-        context.getAdapter().setPersonaArrayList(arrayList);
+
+
+        personaArrayList = sqlAgenda.ordenarPersonasDni();
+
+
+        context.getAdapter().setPersonaArrayList(personaArrayList);
         context.getAdapter().notifyDataSetChanged();
     }
-
 }

@@ -10,6 +10,7 @@ import com.example.itmaster.sqlpractica1.Adapters.Adapter;
 import com.example.itmaster.sqlpractica1.DAO.SQLAgenda;
 import com.example.itmaster.sqlpractica1.Listeners.ListenerBtnBorrarList;
 import com.example.itmaster.sqlpractica1.Listeners.ListenerBtnRegistrar;
+import com.example.itmaster.sqlpractica1.Listeners.ListenerChkDni;
 import com.example.itmaster.sqlpractica1.Listeners.ListenerChkListName;
 import com.example.itmaster.sqlpractica1.Models.Persona;
 import com.example.itmaster.sqlpractica1.R;
@@ -26,6 +27,7 @@ public class VerRegistros extends AppCompatActivity {
     private ImageButton btnLstEditar, btnLstBorrar;
     private Button checkBoxName, checkBoxDNI;
     private ListenerChkListName listenerChkListName;
+    private ListenerChkDni listenerChkDni;
 
 
     public Adapter getAdapter() {
@@ -45,10 +47,13 @@ public class VerRegistros extends AppCompatActivity {
         btnLstEditar = findViewById(R.id.btnLstEditar);
 
         checkBoxName = findViewById(R.id.checkboxName);
+        checkBoxDNI = findViewById(R.id.checkboxDNI);
 
 
         listenerChkListName = new ListenerChkListName(this,listView,personaArrayList);
         checkBoxName.setOnClickListener(listenerChkListName);
+        listenerChkDni = new ListenerChkDni(this,listView,personaArrayList);
+        checkBoxDNI.setOnClickListener(listenerChkDni);
 
 
         sqlAgenda = new SQLAgenda(this);
